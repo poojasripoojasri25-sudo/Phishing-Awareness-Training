@@ -1,0 +1,68 @@
+
+def phishing_awareness():
+    print("=" * 45)
+    print("     PHISHING AWARENESS TRAINING")
+    print("=" * 45)
+
+    score = 0
+
+    questions = [
+        {
+            "question": "An email asks you to verify your bank password using an unfamiliar link. Is it suspicious?",
+            "answer": "yes",
+            "explanation": "Never enter passwords through unexpected links."
+        },
+        {
+            "question": "A message creates urgency and threatens to block your account unless you click immediately. Is this a warning sign?",
+            "answer": "yes",
+            "explanation": "Urgent threats are commonly used in phishing."
+        },
+        {
+            "question": "Should you check a sender's email address before trusting a message?",
+            "answer": "yes",
+            "explanation": "Check the full sender address and verify it independently."
+        },
+        {
+            "question": "Is it safe to open every attachment from an unknown sender?",
+            "answer": "no",
+            "explanation": "Unknown attachments may contain malware."
+        },
+        {
+            "question": "Should you report a suspicious email to your IT or security team?",
+            "answer": "yes",
+            "explanation": "Reporting helps prevent other people from becoming victims."
+        }
+    ]
+
+    for number, item in enumerate(questions, start=1):
+        print(f"\nQuestion {number}:")
+        print(item["question"])
+
+        answer = input("Enter yes or no: ").strip().lower()
+
+        while answer not in ["yes", "no"]:
+            answer = input("Please enter yes or no: ").strip().lower()
+
+        if answer == item["answer"]:
+            print("Correct!")
+            score += 1
+        else:
+            print("Incorrect.")
+
+        print("Explanation:", item["explanation"])
+
+    print("\n" + "=" * 45)
+    print("TRAINING COMPLETED")
+    print("Your score:", score, "/", len(questions))
+    print("Percentage:", round(score / len(questions) * 100, 2), "%")
+
+    if score >= 4:
+        print("Excellent! You understand phishing safety.")
+    else:
+        print("Keep learning and practice identifying phishing.")
+
+    print("=" * 45)
+
+
+if __name__ == "__main__":
+    phishing_awareness()
